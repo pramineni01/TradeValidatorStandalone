@@ -1,0 +1,37 @@
+{
+  "name": "tradevalidator",
+  "version": "1.0.0",
+  "description": "Trade validation engine",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "dev": "ts-node-dev --respawn --transpile-only index.ts",
+    "build": "tsc",
+    "lint": "npm run prettier -- --write && eslint 'src/**/*.ts' --fix",
+    "prettier": "prettier './**/*.{js,ts,md,json,html,css}'",
+    "prepare": "npm run build",
+    "version": "npm test && git add ."
+  },
+  "author": "Praveen Kumar Ramineni",
+  "license": "ISC",
+  "dependencies": {
+    "@types/ajv-keywords": "^3.4.0",
+    "@types/config": "^0.0.38",
+    "@types/errorhandler": "^1.5.0",
+    "@types/fs-extra": "^9.0.11",
+    "@types/lokijs": "^1.5.4",
+    "ajv": "^8.2.0",
+    "ajv-formats": "^2.1.0",
+    "ajv-keywords": "^5.0.0",
+    "app-root-path": "^3.0.0",
+    "config": "^3.3.6",
+    "errorhandler": "^1.5.1",
+    "fs-extra": "^10.0.0",
+    "lokijs": "^1.5.12",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/app-root-path": "^1.2.4"
+  }
+}
