@@ -1,2 +1,2 @@
 # TradeValidator
-Hypothetical Trade validation engine for Trading Platform
+Trade validation engine for hypothetical Trading Platform
