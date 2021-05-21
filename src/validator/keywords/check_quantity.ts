@@ -1,41 +1,32 @@
 import Ajv from 'ajv';
-import type {FuncKeywordDefinition, KeywordErrorDefinition} from 'ajv';
-import { DataValidationCxt } from 'ajv/dist/types';
+import type {FuncKeywordDefinition} from 'ajv';
+import { DataValidateFunction, DataValidationCxt } from 'ajv/dist/types';
 
 import {Cache} from '../../cache/Cache';
-import {WithinLimit} from './utils/utils';
+import {QtyWithinLimit} from './utils/utils';
 
-
-const error: KeywordErrorDefinition = {
-  // message: ({params: {len}}) => str`must NOT have more than ${len} items`,
-  // params: ({params: {len}}) => _`{limit: ${len}}`,
-  message: "Errors working"
-}
-
+// check_quantity keyword definition
 export function ChkQtyDef(): FuncKeywordDefinition {
   return {
     keyword: "check_quantity",
     type: "number",
+    schema: false,
     schemaType: "boolean",
-    validate: function (this: Ajv | any, schema: any, data: number, dataSch: any, dataCxt: any): boolean {
-      if (schema === false) {
-        return true;
-      }
-      let cache: Cache = this.cache as Cache;
+    validate: function v(this: Ajv | any, data: number, dataCxt: any): boolean {
       let pd = (dataCxt as DataValidationCxt).parentData;
       let property = (dataCxt as DataValidationCxt).parentDataProperty
-      // let cache: Cache = this.cache;
-      let res = WithinLimit(this.cache as Cache, pd, property, data)
+      let res = QtyWithinLimit(this.cache as Cache, pd, property, data)
       if (typeof res === 'boolean') {
         return true
+      } else {
+        v.errors = res
       }
-      return false
 
-    },
-    error,
+      return false;
+    } as DataValidateFunction,
+    errors: true,
     metaSchema: {
       "type": "boolean"
     }
   }
-
 }

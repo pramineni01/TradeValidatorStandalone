@@ -7,7 +7,7 @@
         "asset": "asset_11",
         "market": "mkt_1",
         "facts": {
-            "consumed_capacity": 20,
+            "consumed_capacity": 100,
             "last_price": 0
         }
     },

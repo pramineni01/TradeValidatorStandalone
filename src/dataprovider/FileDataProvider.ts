@@ -8,7 +8,7 @@ export class FileDataProvider {
     private rvSrc: string;
 
     constructor(schemaSrc: string, factsSrc: string, rvSrc: string) {
-        console.log(`FileDataProvider:ctor: Inputs: ${schemaSrc}, ${factsSrc}, ${rvSrc}`)
+        console.log(`FileDataProvider Inputs: ${schemaSrc}, ${factsSrc}, ${rvSrc}\n`)
         this.schemaSrc = schemaSrc;
         this.factsSrc = factsSrc;
         this.rvSrc = rvSrc;
@@ -23,7 +23,6 @@ export class FileDataProvider {
             return null;
         }
 
-        console.log("typeof Schema: " + typeof schemaObj )
         return schemaObj;
     }
     

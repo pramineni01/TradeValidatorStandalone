@@ -6,7 +6,7 @@
         "RunningValuesSrc": "./testdata/cachedata/runningvalues.json",
 
         "InputData": {
-            "TradesSrc": "./testdata/trades/trades.json"
+            "TradesSrc": "./testdata/trades/trades_with_errors.json"
         }
     }
 }

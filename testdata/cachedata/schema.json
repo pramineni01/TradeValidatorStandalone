@@ -20,10 +20,12 @@
                     "format": "date-time"
                 },
                 "portfolio": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": ["pfolio_1","pfolio_2", "pfolio_3", "pfolio_4", "pfolio_5"]
                 },
                 "asset": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [ "asset_11","asset_12", "asset_13", "asset_14", "asset_15"]
                 },
                 "market": {
                     "type": "string",
@@ -33,13 +35,19 @@
                     "type": "string",
                     "enum": ["BUY", "SELL"]
                 },
+                "price": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "check_price": true
+                },
                 "quantity": {
                     "type": "number",
                     "exclusiveMinimum": 0,
                     "check_quantity": true
+
                 }
             },
-            "required": ["quantity"],
+            "required": ["start_date", "end_date", "portfolio", "asset", "market"],
             "additionalProperties": true
         }
     }
